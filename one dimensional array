@@ -1,0 +1,96 @@
+#include <iostream>
+#include <string.h>
+
+using namespace std;
+
+int DeleteElement(int *, int &, int &);
+void PrintArr(int *,int );
+int AddElement(int arr[], int &, int &);
+int AddElementPosission(int *, int &, int &, int &);
+int ChangeElement(int *, int , int &, int &);
+
+int main()
+{
+ int arr[100], n, i, elemDelete, elemAdd, elemPos , elem;
+    cout<<"Enter the Size: ";
+    cin>>n;
+    cout<<"Enter "<<n<<" Array Elements: ";
+        for(i=0; i<n; i++)
+            cin>>arr[i];
+    cout<<"\nEnter Element to Delete: ";
+    cin>>elemDelete;
+    DeleteElement(arr, n, elemDelete);
+    PrintArr(arr, n);
+    cout<<"\nEnter Element to Add at the end of the array: ";
+    cin>>elemAdd;
+    AddElement(arr, n, elemAdd);
+    PrintArr(arr, n);
+    cout<<"\nEnter Element to Add,and after his position ";
+    cin >> elemAdd;
+    cin >> elemPos;
+    AddElementPosission(arr, n, elemPos, elemAdd);
+    PrintArr(arr, n);
+    cout<<"\nEnter Element that you want to change and after that enter the another element ";
+    cin >> elem;
+    cin >> elemAdd;
+    ChangeElement(arr,n,elem,elemAdd);
+    PrintArr(arr,n);
+
+
+    return 0;
+    }
+
+    int DeleteElement(int *arr, int &sizeArr, int &elem){
+    int i, j, found=0;
+    for(i=0; i < sizeArr; i++)
+    {
+        if(arr[i] == elem)
+        {
+            for(j=i; j <sizeArr - 1 ; j++)
+                arr[j] = arr[j+1];
+            found++;
+            i--;
+            sizeArr--;
+        }
+
+    }
+    if(found==0)
+      cout<<"\nElement doesn't found in the Array!";
+    else
+
+        return 0;
+}//DeleteElement
+void PrintArr(int arr[], int sizeArr){
+    cout<<"\n\nThe Array is:\n";
+        for(int i=0; i< sizeArr; i++)
+            cout<<arr[i]<<"  ";
+}//PrintArr
+int AddElement(int arr[], int &sizeArr, int &elem){
+  int i = 0;
+   for(i=0; i< sizeArr; i++);
+    sizeArr++;
+    arr[i] = elem;
+
+   return 0;
+
+}//AddElement
+int AddElementPosission(int arr[], int &sizeArr, int &elemPosission, int &elem){
+    int i;
+    for(i=sizeArr; i >= elemPosission; i--)
+        arr[i] = arr[i-1];
+    arr[i] = elem;
+    sizeArr++;
+
+}//AddElementPosission
+
+int ChangeElement(int arr[], int sizeArr, int &elem, int &changeElem)
+{
+    int i;
+     for(i=0; i< sizeArr; i++){
+            if(arr[i] == elem)
+            arr[i] = changeElem;
+
+
+     }
+}//ChangeElement
+
