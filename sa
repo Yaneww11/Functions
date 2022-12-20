@@ -1,0 +1,31 @@
+#include <iostream>
+#include<math.h>
+
+using namespace std;
+typedef double(*f_type)(double);
+
+f_type table(char ch){
+    switch(ch)
+    {
+        case 'a':
+          return sin;break;
+        case 'b':
+          return cos;break;
+        case 'c':
+          return exp;break;
+        case 'd':
+          return log;break;
+        default:
+          cout << "Error\n";return tan;
+    }
+}
+int main()
+{
+    char ch;
+    cin >> ch;
+    double x;
+    cout << "x= ";
+    cin >> x;
+    cout << table(ch)(x) << '\n';
+    return 0;
+}
