@@ -38,6 +38,12 @@ int main()
       cout << *beginb++ << endl;
   }
 
+  replace_if(a, a + SIZE, contains_e, string("kiss"));
+  string* p = a;
+  while(p != a + SIZE)
+  {
+      cout << *p++ << endl;
+  }
   return 0;
 }
 
