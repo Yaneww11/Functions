@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+typedef double (*myfunc)(double, unsigned);
+double Sum(double, unsigned);
+void Reg(myfunc, int, int);
+
+int main()
+{
+Reg(Sum, 20, 2);
+}
+double Sum(double x, unsigned n) {
+double S = 0.0;
+unsigned i = 1;
+while(i <= n) {
+
+S += x / i;
+cout << S << endl;
+++i;
+}
+return S;
+}
+
+void Reg(myfunc p,int a, int b) {
+cout << (*p)(a, b) << endl;
+}
